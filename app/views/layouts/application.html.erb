@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <title>STALibrary</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+</head>
+
+<% if admin_signed_in? %>
+<%= render "shared/navigation" %>
+<% end %>
+
+
+ <div class="container">
+
+   <% if notice.present? %><p class="bg-info" id="notice"><%= notice %></p><%end%>
+
+<%= yield %>
+   </div>
+ </br>
+
+</body>
+
+</html>

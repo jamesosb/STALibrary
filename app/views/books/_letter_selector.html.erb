@@ -1,0 +1,11 @@
+
+<div class="btn-group" role="group" aria-label="...">
+
+
+<% @bookletters.each do |b| %>
+
+    <%= link_to b, index_by_letter_books_path(:letter => b), :remote => true, :class => "letter_link btn btn-default letter_#{b}"  %>
+
+<%end%>
+
+</div>

@@ -1,0 +1,22 @@
+
+
+
+<% @children.each do |child| %>
+
+
+    <div class=" table_tile child<%=child.id%>">
+      <div class="circle-thumbnail-outer"><% if child.childimg.exists? %><%= image_tag child.childimg.url(:thumb), :class => "circle-thumbnail"%> <%end%></div>
+      <div class=""><h2><%= child.forename %></h2>
+      </div>
+
+
+      <%= render partial: "checkin_table", locals: {child: child} %>
+
+    </div>
+
+<% end %>
+
+<p class="pagination">
+  <%= link_to_next_page(@children, 'Load More', :remote => true, :class => 'btn btn-custom-success') %>
+</p>
+

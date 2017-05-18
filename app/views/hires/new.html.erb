@@ -1,0 +1,102 @@
+
+<div class="signpost-box" id="signpost-box">
+
+  <div class="centre-boxes">
+    <div class="signpost-line-centre"><div class="signpost-line"></div></div>
+    <%# select_tag("class","<option>Sycamore</option><option>Redwood</option><option>Cherry</option>".html_safe, :class => "form-control dropdown", :data =>{ :remote => true, :url => url_for(:controller => "hires", :action => "from_class")})#%>
+    <div class="centre-inline">
+      <div class='select-class'><div class="signpost-outer-circle"><div class="signpost-inner-circle"><span class="glyphicon white-links glyphicon-user" aria-hidden="true"></span></div></div></div>
+      <div class='select-class grey-links'> You </div>
+      <div class="border-box-right"></div>
+      <div class="delete-box"><span class="glyphicon white-links glyphicon-remove" aria-hidden="true"></span></div>
+    </div>
+    <div class="centre-inline">
+      <div class="border-box-left"></div>
+      <div class='select-class'> <div class="signpost-outer-circle"><div class="signpost-inner-circle"><span class="glyphicon white-links glyphicon-book" aria-hidden="true"></span></div></div> </div>
+      <div class='select-class grey-links'> 1st Book </div>
+      <div class="border-box-right"></div>
+      <div class="delete-box"><span class="glyphicon white-links glyphicon-remove" aria-hidden="true"></span></div>
+    </div>
+    <div class="centre-inline">
+      <div class="border-box-left"></div>
+      <div class='select-class'> <div class="signpost-outer-circle"><div class="signpost-inner-circle "><span class="double-book1 glyphicon white-links glyphicon-book" aria-hidden="true"><span class="double-book2 glyphicon white-links glyphicon-book" aria-hidden="true"></span></div></div></div>
+      <div class='select-class grey-links'> 2nd Book </div>
+      <div class="border-box-right"></div>
+      <div class="delete-box"><span class="glyphicon white-links glyphicon-remove" aria-hidden="true"></span></div>
+    </div>
+
+    <div class="centre-inline">
+      <div class="border-box-left"></div>
+      <div class='select-class'> <div class="signpost-outer-circle"><div class="signpost-inner-circle"><span class="glyphicon white-links glyphicon-thumbs-up" aria-hidden="true"></span></div></div></div>
+      <div class='select-class grey-links'> Borrow </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="you-box">
+  <h1 class="hires_headings" >You</h1>
+
+  <div class="centre-boxes class-boxes">
+  <%# select_tag("class","<option>Sycamore</option><option>Redwood</option><option>Cherry</option>".html_safe, :class => "form-control dropdown", :data =>{ :remote => true, :url => url_for(:controller => "hires", :action => "from_class")})#%>
+  <div class="centre-inline">
+  <%= link_to fetch_children_path(:classroom => 'Lilac'), class: 'select-class', :data => { :classroom => 'Lilac' },:remote => true do %> <div class="select-circle"><span class="glyphicon white-links glyphicon-tree-conifer" aria-hidden="true"></span></div> <% end %>
+  <%= link_to fetch_children_path(:classroom => 'Lilac'), class: 'select-class white-links', :data => { :classroom => 'Lilac' }, :remote => true do %> Lilac <% end %>
+  </div>
+  <div class="centre-inline">
+  <%= link_to fetch_children_path(:classroom => 'Juniper'), class: 'select-class', :data => { :classroom => 'Juniper' }, :remote => true do %> <div class="select-circle"><span class="glyphicon white-links glyphicon-tree-deciduous " aria-hidden="true"></span></div> <% end %>
+  <%= link_to fetch_children_path(:classroom => 'Juniper'), class: 'select-class white-links', :data => { :classroom => 'Juniper' }, :remote => true do %> Juniper <% end %>
+
+  </div>
+  <div class="centre-inline">
+  <%= link_to fetch_children_path(:classroom => 'Cherry'), class: 'select-class', :data => { :classroom => 'Cherry' }, :remote => true do %> <div class="select-circle"><span class="glyphicon white-links glyphicon-leaf" aria-hidden="true"></span></div> <% end %>
+  <%= link_to fetch_children_path(:classroom => 'Cherry'), class: 'select-class white-links', :data => { :classroom => 'Cherry' }, :remote => true do %> Cherry <% end %>
+  </div>
+  </div>
+
+
+<div id="children-carousel" class="owl-carousel owl-theme">
+    <%= render partial: 'child_list', locals: { children: @children} %>
+  </div>
+</div>
+
+
+<div class="book1-box">
+
+    <div class="form-group">
+      <h1 class="hires_headings">First Book</h1>
+
+        <%=collection_select(:genre1, :genre_id, @limitedgenres, :id, :name, {prompt: true}, {:class => "form-control dropdown", :data =>{ :remote => true, :url => url_for(:controller => "hires", :action => "from_category", :carousel_id => '1')}})%>
+    </div>
+
+
+  <div id="book1-carousel" class="owl-carousel owl-theme">
+
+    <%= render partial: 'book_list', locals: { books: @books} %>
+
+  </div>
+</div>
+
+<div class="book2-box">
+
+    <div class="form-group">
+      <h1 class="hires_headings">Second Book</h1>
+        <%=collection_select(:genre2, :genre_id, @limitedgenres, :id, :name, {prompt: true}, {:class => "form-control dropdown", :data =>{ :remote => true, :url => url_for(:controller => "hires", :action => "from_category", :carousel_id => '2')}})%>
+
+
+  </div>
+
+  <div id="book2-carousel" class="owl-carousel owl-theme">
+
+    <%= render partial: 'book_list', locals: { books: @books} %>
+
+  </div>
+</div>
+
+
+<div class="borrow-box">
+
+<%= render 'form' %>
+
+</div>

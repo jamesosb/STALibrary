@@ -1,0 +1,21 @@
+<%= form_for(@genre, :html => { :class => "form-inline"}) do |f| %>
+  <% if @genre.errors.any? %>
+    <div id="error_explanation notice">
+      <p class="bg-danger"><%= pluralize(@genre.errors.count, "error") %> prohibited this genre from being saved:</p>
+
+      <ul class="bg-danger">
+      <% @genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+
+    <%= f.submit "Add Genre", :class => "btn btn-custom-success" %>
+
+<% end %>

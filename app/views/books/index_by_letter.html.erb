@@ -1,0 +1,16 @@
+
+
+<h1>Books By Letter</h1>
+
+<%= render partial: "letter_selector"%>
+
+<%= link_to 'New Book', new_book_path, :class => "btn btn-custom-success" %>
+
+</br></br>
+<div class="book-zone">
+<%= render partial: "books_list"%>
+</div>
+
+
+<%= link_to 'New Book', new_book_path, :class => "btn btn-custom-success" %>
+

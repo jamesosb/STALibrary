@@ -1,0 +1,19 @@
+
+<div class="jumbotron summary">
+
+<h1>
+  <% if @hire.child.childimg.exists? %><%= image_tag @hire.child.childimg.url(:thumb),:class=>"img-thumbnail" %><%end%> <%= @hire.child.forename %>  hired <% if @hire.book.bookimg.exists? %><%= image_tag @hire.book.bookimg.url(:thumb),:class=>"img-thumbnail" %><%end%> '<%= @hire.book.title %>' on <%= @hire.created_at.strftime("%A %u %B at %H:%M") %>.
+</h1>
+
+
+  <% if @hire.checkedin.present? %>
+
+<h3>  It was checked back in on <%= @hire.checkedin.strftime("%A %u %B at %H:%M") %></h3>
+
+  <%end%>
+
+</div>
+
+
+  <%= link_to 'Hire new book', new_hire_path, :class =>"btn btn-custom-success" %>
+  <%= link_to 'View all books', hires_path, :class =>"btn btn-default" %>

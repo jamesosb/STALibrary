@@ -1,0 +1,49 @@
+<%= form_for(@hire) do |f| %>
+  <% if @hire.errors.any? %>
+    <div id="error_explanation notice">
+      <h2><%= pluralize(@hire.errors.count, "error") %> prohibited this hire from being saved:</h2>
+
+      <ul>
+      <% @hire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <%# 2.times do #%>
+        <%# f.hidden_field :child_id %>
+        <%# f.hidden_field :book_id #%>
+
+
+    <%# end #%>
+    <%# 2.times do %>
+    <input type="hidden" class="childfield" id="hire[hire_attributes][1][child_id]" name="hire[hire_attributes][1][child_id]"/>
+    <input type="hidden" class="hire_book" id="hire[hire_attributes][1][book_id] hire_book_id" name="hire[hire_attributes][1][book_id]"/>
+
+    <input type="hidden" class="childfield" id="hire[hire_attributes][2][child_id]" name="hire[hire_attributes][2][child_id]"/>
+    <input type="hidden" class="hire_book2" id="hire[hire_attributes][2][book_id]" name="hire[hire_attributes][2][book_id]"/>
+        <%# end %>
+
+
+    <%# f.label :child_id #%><br>
+    <%# f.select(:child_id, Child.all.collect {|a| [a.nickname, a.id]}) #%>
+
+
+
+
+
+    <%# f.label :book_id #%><br>
+    <%# f.select(:book_id, Book.all.collect {|a| [a.Title, a.id]}) #%>
+        <%# books_form.text_field :book_id #%>
+    <%# end #%>
+
+
+
+  <div class="actions">
+    <%= f.submit 'Take me home' ,:class=>"btn btn-custom-success big-btn", :width => '100%' %>
+  </div>
+<% end %>
+
+</br>

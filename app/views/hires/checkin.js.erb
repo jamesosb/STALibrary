@@ -1,0 +1,11 @@
+// Append new data
+$("<%=j render(:partial => 'check_in_list', :object => @children) %>")
+    .appendTo($("#results-container"));
+
+// Update pagination link
+<% if @children.last_page? %>
+$('.pagination').html("That's all, folks!");
+<% else %>
+$('.pagination')
+    .html("<%=j link_to_next_page(@children, 'Load More', :remote => true, :class => 'btn btn-custom-success centre-boxes') %>");
+<% end %>

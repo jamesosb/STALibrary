@@ -1,0 +1,46 @@
+
+<div class="search_jumbo">
+<h1>Check In Books</h1>
+
+
+
+  <div class="btn-group btn-group-justified letter-picker" role="group" aria-label="..." style="display: none;">
+
+
+    <%= link_to "ABC" , search_checkin_path(:letter => 'ABC', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "DEF" , search_checkin_path(:letter => 'DEF', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "GHI" , search_checkin_path(:letter => 'GHI', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "JKL" , search_checkin_path(:letter => 'JKL', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "MNO" , search_checkin_path(:letter => 'MNO', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "PQR" , search_checkin_path(:letter => 'PQR', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "STU" , search_checkin_path(:letter => 'STU', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "VWX" , search_checkin_path(:letter => 'VWX', :is_text_search => 'no'), :remote => true, :class => "letter_link btn btn-default"  %>
+    <%= link_to "YZ" , search_checkin_path(:letter => 'YZ', :is_text_search => 'no'), :remote => true,:class => "letter_link btn btn-default"  %>
+
+  </div>
+
+  <%= form_tag search_checkin_path, :method => :get, :id => 'search-form', :remote => true do %>
+  <div class="form-group has-feedback">
+    <%= text_field_tag :search_hires, nil, placeholder: 'Search for Children', :class => 'form-control search-field' %>
+    <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+    <%= hidden_field_tag 'is_text_search', 'yes' %>
+    <%= submit_tag "", :id => 'Submit', :style => "display: none;" %>
+  <% end %>
+
+  </div>
+
+  <div class="search-term"></div>
+
+</div>
+
+<div class="results">
+
+<div id="results-container">
+
+<%= render partial: "check_in_list" %>
+
+</div>
+
+</div>
+
+<br>

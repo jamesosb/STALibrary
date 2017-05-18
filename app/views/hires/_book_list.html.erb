@@ -1,0 +1,16 @@
+
+<%if @selected.present? %>
+
+<% books.each do |book| %>
+
+    <div data-id = "<%= book.id %>" class="tapbook<%=@cid %> tiles book<%=@cid %>genre<%=book.genre_id %>"><a class="item link"><% if book.bookimg.exists? %><%= image_tag book.bookimg.url(:small), :class => "lazyOwl tilesimg", :data => { :src => book.bookimg.url(:small)} %><% else %><div class="no_image_tile"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></div> <%end%> </br> <p class="tile_title book1-name" ><%= truncate(book.title, length:35, separator: '...') %></p></a></div>
+
+<% end end %>
+
+
+
+
+
+
+
+

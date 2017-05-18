@@ -1,0 +1,674 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$nprogress-color: #FEF8F7;
+$nprogress-height: 2px;
+$nprogress-zindex: 10100;
+
+@import 'nprogress';
+@import 'nprogress-bootstrap';
+
+
+// new design
+
+/* Red */
+$bgDefault      : #EC5C46;
+$bgHighlight    : #F57C6A;
+$colDefault     : #FFFFFF;
+$colHover       : #ffbbbc;
+
+$main-blue      : #31A0BA;
+$main-blue-hover: #298196;
+
+$deep-blue      : #32768B;
+$deep-blue-hover: #298196;
+
+$offwhite       : #FEF8F7;
+
+$grey-blue      : #8FAEAC;
+
+$deep-red       : #EC5C46;
+
+
+/* --- Style --- */
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHover; }}
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHover;   }}}
+    .active {
+      > a, > a:hover, > a:focus {
+        color: $colHover;
+        background-color: $bgHighlight; }}
+    .open {
+      > a, > a:hover, > a:focus {
+        color: $colHover;
+        background-color: $bgHighlight;
+        .caret {
+          border-top-color: $colHover;
+          border-bottom-color: $colHover; }}}
+    > .dropdown {
+      > a {
+        .caret {
+          border-top-color: $colDefault;
+          border-bottom-color: $colDefault; }
+        &:hover, &:focus {
+          .caret {
+            border-top-color: $colHover;
+            border-bottom-color: $colHover; }}}}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHover;
+      background-color: $bgHighlight; }}
+}
+
+.navbar{
+  margin-bottom: 0;
+}
+
+.btn-custom-success{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: #FF7A65;
+  font-size: 20px;
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  border-color: #B94837;
+  color: #FFFFFF;
+}
+
+
+.btn-custom-success:hover, .btn-custom-success:active{
+  color: #FFFFFF;
+  background-color: #F48A79;
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  border-color: #B94837;
+
+}
+
+
+.fitted-jumbotron{
+  margin-top: 40px;
+  background-color: #EC5C46;
+  padding: 10px;
+  min-height: 500px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+
+}
+
+.jumbotron-top{
+  min-height: 250px;
+  background-color: #FEF8F7;
+  margin: 5px;
+  top: -15px;
+  width:100%;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  -webkit-border-radius: 8px 8px 0px 0px;
+  -moz-border-radius:8px 8px 0px 0px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.large-textbox input{
+  width:100%;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: #B94837 solid 1px;
+  font-size: 20px;
+  background-color: #B94837;
+  padding-left:4px;
+}
+
+.styled-checkbox label input {
+  visibility: hidden;/* <-- hide the default checkbox, the rest is to hide and alllow tabbing, which display:none prevents */
+  display:block;
+  height:0;
+  width:0;
+  position:absolute;
+  overflow:hidden;
+}
+
+.checkbox-label{
+  color: #FFFFFF;
+  margin-left: 16px;
+  margin-top: -44px ;
+  margin-bottom: 20px ;
+}
+
+
+.styled-checkbox label span.checkbox {/* <-- style the artificial checkbox */
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  background-color: #FEF8F7;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #B94837;
+  margin-bottom: 20px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -moz-border-radius:4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+}
+.styled-checkbox [type=checkbox]:checked + span.checkbox {/* <-- style its checked state */
+  background: #FF7A65;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #FFFFFF;
+}
+
+.owllogo {
+  width: 150px;
+  margin-top:27px;
+  margin-left: -35px;
+
+}
+
+.top-header{
+  margin-top:40px;
+  margin-left: 30%;
+  font-size: 3em;
+}
+
+#nprogress .bar,
+#nprogress .spinner {
+  z-index: 999999;
+}
+
+.dropdown-toggle{
+  font-size: 14px;
+}
+
+.tilesimg {
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  height:200px;
+  object-fit: cover;
+  background-color: #999999;
+
+
+}
+
+.no_image_tile{
+  background-color: $offwhite;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  height:200px;
+  object-fit: cover;
+}
+
+.no_image_tile span{
+  margin-top: 50px;
+  color: #31A0BA;
+  font-size: 80px;
+}
+
+.tiles{
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 4px solid #3C3D41;
+  margin: 10px;
+  height: 300px;
+  width: 200px;
+  background-color: $main-blue;
+}
+
+.tiles a{
+  color: #000;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.tile_title{
+  position: absolute;
+  text-align: center;
+  //text-shadow: 2px 2px #000000;
+  width: 80%;
+  top:230px;
+  color:#FFFFFF;
+  font-size: 20px;
+  font-weight:lighter;
+  padding-left: 7px;
+
+}
+
+.yellow-box, .yellow-box a{
+  height: 200px;
+  margin-left:  ($grid-gutter-width / 1);
+  margin-bottom: 30px;
+  background-color: #FFB05A;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.yellow-box:hover, .yellow-box a:hover{
+  background-color: #E0994D;
+}
+
+.box-glyph{
+  display:table;
+  margin:0 auto;
+  margin-top:20px;
+  font-size: 100px;
+}
+
+.centred-collection{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.box-text{
+
+
+  text-align: center;
+  font-weight: lighter;
+  margin-top:10px;
+  font-size: 22px;
+}
+
+.white-links, .white-links a{
+  color: #ffffff;
+}
+
+
+  .nav>li>a:hover,
+  .nav>li>a:focus {
+
+  background-color: #EC5C46;
+  color: $colHover;
+}
+
+.blue-box, .blue-box a{
+  height: 200px;
+  margin-left:  ($grid-gutter-width / 1);
+  background-color: #31A0BA;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.blue-box:hover, .blue-box a:hover{
+ background-color: $main-blue-hover;
+  text-decoration: none;
+
+}
+
+
+.child_heading1{
+  font-weight: bold;
+}
+
+.big-btn{
+  width: 100%;
+  height: 80px;
+  font-size: 20px;
+
+}
+
+.dropdown{
+  font-size: 20px;
+}
+
+#notice, .notice{
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.summary h1{
+  line-height: 2em;
+}
+
+.bg-info{
+  background-color: #32768B;
+  color: #FFFFFF;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.you-box{
+  background-color: #FFB05A;
+  padding: 10px;
+  margin-top: 100px;
+}
+
+.book1-box{
+  background-color: #478D5E;
+  padding: 10px;
+}
+
+.book2-box{
+  background-color: #894676;
+  padding: 10px;
+}
+
+
+h1.hires_headings{
+  text-align: center;
+  font-weight: lighter;
+  color: #FFFFFF;
+}
+
+.borrow-box{
+  background-color: #FEF8F7;
+  padding: 10px;
+}
+
+.select-circle, .select-circle a{
+  padding-top: 20px;
+  font-size: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+  border-radius: 50%;
+  width:100px;
+  height:100px;
+  text-align:center;
+  background-color: $deep-blue;
+  display: block;
+  text-decoration: none;
+}
+
+.select-circle:hover{
+  background-color: $deep-blue-hover;
+  text-decoration: none;
+}
+
+
+.centre-inline{
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.centre-boxes{
+  text-align: center;
+  display: inline-block;
+  float: none;
+  margin:0 auto;
+  width: 100%;
+}
+
+.signpost-box{
+
+  min-height: 100px;
+  background-color: $offwhite;
+  z-index: 10;
+  position: fixed;
+  margin-top: 50px;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signpost-outer-circle{
+  padding: 4px;
+  font-size: 22px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+  border-radius: 50%;
+  width:54px;
+  height:54px;
+  margin: 0 5px 0 5px;
+  text-align:center;
+  background-color: #FFFFFF;
+  display: block;
+  text-decoration: none;
+  border: solid $grey-blue 1px;
+  z-index: 10;
+  position: relative;
+}
+
+.signpost-inner-circle{
+  position: relative;
+  width:44px;
+  height:44px;
+  padding-top: 8px;
+  background-color: $grey-blue;
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+  border-radius: 50%;
+  z-index: 22;
+
+}
+
+.signpost-inner-circle img{
+  position: relative;
+  width:44px;
+  height:44px;
+  margin-top: -8px;
+  background-color: $grey-blue;
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+  border-radius: 50%;
+  z-index: 22;
+}
+
+.grey-links{
+  color: $grey-blue;
+}
+
+.double-book1{
+  margin-left: -6px;
+  padding-top: 0px;
+}
+
+.double-book2{
+  margin-left: -15px;
+  padding-top: 4px;
+  position: absolute;
+}
+
+.signpost-line-centre{
+  width: 230px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.signpost-line{
+  z-index: 10;
+  position: absolute;
+  background-color: #FFFFFF;
+  height: 10px;
+  margin: 34px auto;
+  width: 100%;
+  border: solid 1px $grey-blue;
+}
+
+.border-box-right{
+  height: 8px;
+  width: 8px;
+  background-color: #FFFFFF;
+  position: absolute;
+  margin-top: -49px;
+  margin-left: 54px;
+  z-index: 25;
+}
+
+.border-box-left{
+  height: 8px;
+  width: 8px;
+  background-color: #FFFFFF;
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 0px;
+  z-index: 25;
+}
+
+.delete-box{
+  padding: 3px 2px 2px 2px;
+  font-size: 12px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+  border-radius: 50%;
+  width:20px;
+  height:20px;
+  margin: -78px 0 0 40px;
+  text-align:center;
+  background-color: $deep-red ;
+  text-decoration: none;
+  z-index: 10;
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+
+#genre1_genre_id{
+  display: none;
+}
+
+#genre2_genre_id{
+  display: none;
+}
+
+.search_jumbo {
+   color: $offwhite;
+   font-weight: lighter;
+   width: 100%;
+   background-color: $deep-blue;
+   height: 250px;
+   -webkit-border-radius: 8px 8px 0 0 ;
+   -moz-border-radius: 8px 8px 0 0;
+   border-radius: 8px 8px 0 0;
+   padding: 20px;
+   text-align: center;
+   margin: 20px 0 20px 0;
+}
+
+.search_jumbo h1{
+  color: $offwhite;
+  font-weight: lighter;
+}
+
+.table_tile{
+  margin: 20px 0 20px 0;
+  background-color: $offwhite;
+  text-align: center;
+  padding: 20px;
+  color: $deep-blue;
+
+}
+
+.table_tile h2{
+  color: $deep-blue;
+  font-weight: lighter;
+
+}
+
+.circle-thumbnail-outer{
+  margin: auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+  border-radius: 50%;
+  width:90px;
+  height:90px;
+  display: block;
+  border: solid $grey-blue 1px;
+  padding-top: 5px;
+}
+
+.circle-thumbnail{
+  margin: auto;
+  font-size: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius:50%;
+  border-radius: 50%;
+  width:78px;
+  height:78px;
+  text-align:center;
+  background-color: $deep-blue;
+  display: block;
+  object-fit: cover;
+
+}
+
+.cal-day{
+   font-size: 48px;
+}
+
+.cal-mon{
+  margin-top: -52px;
+  margin-left: 88px;
+
+}
+
+.cal-year{
+
+}
+
+.table-title{
+  font-size: 2em;
+  text-align: left;
+  padding-top: 20px;
+}
+
+p.top-pad{
+  padding-top: 15px;
+}
+
+.letter-picker{
+  margin-top: 30px;
+}
+
+.search-field{
+  margin-top: 20px;
+  font-weight: normal;
+}
+
+.form-control-feedback{
+  color: #000000;
+}
+
+.search-term{
+  text-align: left;
+  padding-left: 10px;
+}
+
+.search-term a {
+  text-decoration: underline;
+  color: #FFFFFF;
+}
+
+.pagination{
+  text-align: center;
+  width: 100%;
+
+}

@@ -1,0 +1,19 @@
+
+<%if @selected_children.present? %>
+
+
+    <% children.each do |child| %>
+
+        <div data-id = "<%= child.id %>" class="tapchild tiles"><a class="item link"><% if child.childimg.exists? %><%= image_tag child.childimg.url(:small), :class => "lazyOwl tilesimg", :data => { :src => child.childimg.url(:small)} %> <% end %> </br> <p class="tile_title2 child-name"><%= child.forename %></p></a></div>
+
+    <% end %>
+
+<% end %>
+
+
+
+
+
+
+
+

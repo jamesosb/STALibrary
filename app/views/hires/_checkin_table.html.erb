@@ -1,0 +1,35 @@
+
+
+<table class="table table-striped table-hover child<%=child.id%>">
+
+  <tbody>
+
+
+
+<% child.hires.each do |x| %>
+
+    <% if x.checkedin.blank? %>
+            <tr class="book<%=x.id%> child<%=x.child_id%>">
+            <td class="col-md-2">
+              <div class="cal-day"><%= x.created_at.strftime("%e") %></div>
+              <div class="cal-mon"><%= x.created_at.strftime("%^b") %>
+              <div class="cal-year"><%= x.created_at.strftime("%Y") %></td>
+            <td class="col-md-9 table-title"><% if x.book.title.present? %><p class="top-pad"> <%= x.book.title %></p><% end %></td>
+            <td class="col-md-1"><% if x.checkedin.blank? %>
+                  <%= form_for(x, :html => { :class => "form-inline"}, :remote => true) do |f| %>
+                      <%= f.hidden_field :checkedin, :value => Time.now %>
+                      <%= f.hidden_field :childid, :value => x.child_id %>
+                      <p class="top-pad"><%= f.button(type: "submit", class: "btn btn-custom-success") do %>
+                          <i class="glyphicon glyphicon-download"></i>
+                      <% end %></p>
+
+                      <%end%><%end%></td>
+            </tr>
+    <% end %>
+
+<%end%>
+
+
+  </tbody>
+</table>
+

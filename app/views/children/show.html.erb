@@ -1,0 +1,61 @@
+
+<div class="jumbotron">
+
+  <div class="row">
+    <div class="col-md-3"><% if @child.childimg.exists? %><%= image_tag @child.childimg.url(:medium), :class => "tilesimg" %><%end%></div>
+    <div class="col-md-4">
+
+
+
+      <p>
+      <strong><%= @child.forename %> <%= @child.surname %></strong>
+        <% if @child.nickname.present? %>(<%= @child.nickname %>)<%end%>
+</p>
+
+
+<p>
+  Upn:
+  <%= @child.UPN %>
+</p>
+
+<p>
+  Class:
+  <%= @child.classroom %>
+</p>
+
+</div>
+
+
+    <div class="col-md-5">
+      <p><strong>Hired Books</strong></p>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+
+          <th>Checked Out</th>
+          <th>Checked In</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+      <% @hires.each do |books| %>
+      <tr>
+      <td><%= books.book.title %></td>
+      <td><% if books.created_at.present? %><%= books.created_at.strftime("%A %e %B") %><%end%></td>
+      <td><% if books.checkedin.present? %><%= books.checkedin.strftime("%A %e %B") %><%end%></td>
+      </tr>
+      <%end%>
+
+        </tbody></table>
+    </div>
+
+
+
+  </div></div>
+
+<%= link_to 'Edit', edit_child_path(@child), :class => "btn btn-default" %>
+<%= link_to 'View all Children', children_path, :class => "btn btn-default" %>
+<%= link_to 'Check Out More Books', new_hire_path, :class => "btn btn-custom-success" %>

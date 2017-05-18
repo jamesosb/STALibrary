@@ -1,0 +1,42 @@
+
+
+<h1>Listing Hires</h1>
+
+<%= paginate @hires %>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Child</th>
+      <th>Book</th>
+      <th>Checked Out</th>
+      <th>Checked In</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hires.each do |hire| %>
+      <tr>
+        <td data-link="<%= hire_path(hire) %>"><% if hire.child.childimg.exists? %><%= image_tag hire.child.childimg.url(:thumb), :class => "thumbnail" %> <%end%></td>
+        <td data-link="<%= hire_path(hire) %>"><%=link_to hire.child.forename, child_path(hire.child_id) %></td>
+        <td data-link="<%= hire_path(hire) %>"><% if hire.book.title.present? %><%= hire.book.title %><% end %></td>
+        <td data-link="<%= hire_path(hire) %>"><%= hire.created_at.strftime("%A %e %B at %H:%M") %></td>
+        <td data-link="<%= hire_path(hire) %>"><% if hire.checkedin.present? %><%= hire.checkedin.strftime("%A %e %B at %H:%M") %><% else %>Still out there<% end %></td>
+        <td><% if !hire.checkedin.present? %>
+          <%= form_for(hire, :html => { :class => "form-inline"}) do |f| %>
+              <%= f.hidden_field :checkedin, :value => Time.now %>
+              <%= f.submit "Check In", :class => "btn btn-custom-success" %>
+          <%end%><%end%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= paginate @hires %>
+
+<%# link_to 'New Hire', new_hire_path #%>
